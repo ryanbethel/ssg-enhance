@@ -2,7 +2,7 @@ const config = {
   paths: [
     '/',
     '/about',
-    { path: '/{thing}/fixed/about', values: { thing: [1, 2, 3] } }
+    { path: '/{thing1}/{thing2}/about', values: { thing1: [1, 2, 3], thing2: ['one', 'two'] } }
   ],
 
 }

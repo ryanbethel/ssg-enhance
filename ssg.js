@@ -84,11 +84,9 @@ async function fetchAndSave(urlPath) {
 
 async function processDynamicPath({ template, values, currentPath, keys = Object.keys(values), index = 0 }) {
   if (!currentPath) currentPath = template
-  console.log('Processing dynamic path', template, values, currentPath, keys, index);
   if (index < keys.length) {
     const key = keys[index];
     const replacements = values[key];
-    console.log('replacements', key, replacements);
     for (const replacement of replacements) {
       const newPath = currentPath.replace(new RegExp(`{${key}}`, 'g'), replacement);
       await processDynamicPath({ template, values, currentPath: newPath, keys, index: index + 1 });
